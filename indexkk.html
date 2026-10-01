@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ilakshi's Art</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#fffaf8; /* soft cream */
+      --card:#fffefc;
+      --accent:#8b2b3a; /* maroon */
+      --peach:#ffd9cc;
+      --lightpink:#ffeef2;
+      --muted:#7a6b6b;
+      --glass: rgba(255,255,255,0.6);
+      --shadow: 0 8px 20px rgba(139,43,58,0.08);
+      --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:linear-gradient(180deg,var(--bg),#fff);color:#333}
+    .container{max-width:var(--maxw);margin:0 auto;padding:24px}
+
+    /* Splash */
+    .splash{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--peach),var(--lightpink));z-index:1000;transition:opacity .6s ease,visibility .6s}
+    .splash.hidden{opacity:0;visibility:hidden}
+    .logo-wrap{display:flex;align-items:center;gap:18px}
+    .logo-mark{width:92px;height:92px;border-radius:14px;background:conic-gradient(from 200deg,#ffd9cc,#fff1f3,#ffd1d1,#fff1f3);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);transform:rotate(-8deg);}
+    .logo-mark svg{width:56px;height:56px}
+    .brand{font-family:'Playfair Display',serif;color:var(--accent);font-size:28px}
+    .tag{font-size:12px;color:var(--muted);}
+
+    /* Header/Nav */
+    header{position:sticky;top:0;background:rgba(255,255,255,0.6);backdrop-filter:blur(6px);z-index:900}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav .left{display:flex;align-items:center;gap:14px}
+    nav a{margin:0 8px;color:var(--accent);text-decoration:none;font-weight:600}
+    .cta{background:var(--accent);color:#fff;padding:8px 14px;border-radius:10px;text-decoration:none}
+
+    /* Hero Carousel */
+    .hero{margin-top:18px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+    .carousel{position:relative;height:420px;background:#f9f7f6}
+    .carousel img{width:100%;height:420px;object-fit:cover;display:block}
+    .carousel .dots{position:absolute;left:50%;transform:translateX(-50%);bottom:14px;display:flex;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6);border:1px solid rgba(0,0,0,0.08)}
+    .dot.active{background:var(--accent)}
+
+    /* Featured categories */
+    .categories{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap}
+    .cat{flex:1 1 180px;background:var(--card);padding:18px;border-radius:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:8px}
+    .cat h4{margin:0;color:var(--accent)}
+    .cat p{margin:0;color:var(--muted);font-size:14px}
+
+    /* Gallery */
+    .gallery-wrap{margin-top:28px}
+    .filters{display:flex;gap:10px;flex-wrap:wrap}
+    .filters button{border:1px solid rgba(0,0,0,0.06);background:transparent;padding:8px 12px;border-radius:8px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:14px}
+    .card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);cursor:pointer}
+    .card img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .3s}
+    .card:hover img{transform:scale(1.02)}
+    .card .meta{padding:12px}
+    .meta h5{margin:0;color:var(--accent)}
+    .meta p{margin:6px 0 0;color:var(--muted);font-size:13px}
+
+    /* Modal fullscreen */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.65);display:flex;align-items:center;justify-content:center;padding:24px;z-index:1100;opacity:0;visibility:hidden;transition:opacity .24s}
+    .modal.open{opacity:1;visibility:visible}
+    .modal img{max-width:90%;max-height:90%;border-radius:8px}
+
+    /* Form styles */
+    form{background:var(--card);padding:16px;border-radius:12px;box-shadow:var(--shadow)}
+    .row{display:flex;gap:12px}
+    .field{display:flex;flex-direction:column;margin-bottom:12px}
+    .field label{font-size:13px;color:var(--muted);margin-bottom:6px}
+    input[type=text],input[type=email],select,textarea{padding:10px;border-radius:8px;border:1px solid rgba(0,0,0,0.06);font-size:14px}
+    textarea{min-height:100px}
+    .btn{background:var(--accent);color:#fff;padding:10px 14px;border-radius:10px;border:none;cursor:pointer}
+
+    /* About / Pricing / Contact */
+    .two-col{display:grid;grid-template-columns:1fr 360px;gap:18px}
+    .price-list{list-style:none;padding:0;margin:0}
+    .price-list li{padding:12px;border-bottom:1px dashed rgba(0,0,0,0.05);display:flex;justify-content:space-between}
+
+    footer{padding:28px 0;text-align:center;color:var(--muted)}
+
+    /* Responsive */
+    @media(max-width:900px){.two-col{grid-template-columns:1fr} .carousel{height:260px}.carousel img{height:260px}.card img{height:160px}}
+  </style>
+</head>
+<body>
+
+  <!-- Splash -->
+  <div class="splash" id="splash">
+    <div class="logo-wrap">
+      <div class="logo-mark" aria-hidden>
+        <!-- simple paint stroke icon -->
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 21c6 0 7-9 13-9" stroke="#8b2b3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="18" cy="6" r="3" fill="#fff1f3" stroke="#8b2b3a" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand">Ilakshi's Art</div>
+        <div class="tag">Handmade Paintings & Custom Art</div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="left">
+        <div style="display:flex;align-items:center;gap:12px">
+          <div style="width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--peach),var(--lightpink));display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 21c6 0 7-9 13-9" stroke="#8b2b3a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="6" r="3" fill="#fff1f3" stroke="#8b2b3a" stroke-width="1.2"/></svg>
+          </div>
+          <div style="line-height:1"> <div class="brand" style="font-size:18px">Ilakshi's Art</div><div class="tag" style="font-size:11px">Art & Painting</div></div>
+        </div>
+        <nav style="margin-left:18px">
+          <a href="#home">Home</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#custom">Custom Order</a>
+          <a href="#about">About</a>
+          <a href="#pricing">Pricing</a>
+        </nav>
+      </div>
+      <div>
+        <a href="#contact" class="cta">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero / Carousel -->
+    <section id="home">
+      <div class="hero">
+        <div class="carousel" id="carousel">
+          <img src="https://images.unsplash.com/photo-1526318472351-c75fcf07011b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=5a7db7e4d2c4f1a1a3f5f4e6be0b1f6e" alt="art 1">
+          <img src="https://images.unsplash.com/photo-1549880338-65ddcdfd017b?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=f4f5d0e9b8b3e2c9a3b6a9d8a8c1d2f2" alt="art 2" style="display:none">
+          <img src="https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s=3f6b8f9a9f6c1b6e1e2a3c4d5e6f7a8b" alt="art 3" style="display:none">
+          <div class="dots" id="dots"></div>
+        </div>
+      </div>
+
+      <div class="categories">
+        <div class="cat"><h4>Portraits</h4><p>Customized portrait paintings from photos — acrylic, oil or watercolor.</p></div>
+        <div class="cat"><h4>Mandala Art</h4><p>Intricate mandala patterns made with care and symmetry.</p></div>
+        <div class="cat"><h4>Canvas Paintings</h4><p>Large format canvas artworks for homes and offices.</p></div>
+        <div class="cat"><h4>Resin Art</h4><p>Glossy resin finishes and mixed-media pieces.</p></div>
+        <div class="cat"><h4>Custom Orders</h4><p>Tell us your idea and we'll bring it to life.</p></div>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="gallery-wrap">
+      <h2 style="color:var(--accent)">Gallery</h2>
+      <div class="filters" id="filters">
+        <button data-filter="all">All</button>
+        <button data-filter="Portraits">Portraits</button>
+        <button data-filter="Mandala">Mandala Art</button>
+        <button data-filter="Canvas">Canvas Paintings</button>
+        <button data-filter="Resin">Resin Art</button>
+      </div>
+      <div class="grid" id="grid">
+        <!-- sample cards -->
+        <div class="card" data-category="Portraits"><img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop" alt="p1"><div class="meta"><h5>Portrait I</h5><p>Acrylic on canvas</p></div></div>
+        <div class="card" data-category="Mandala"><img src="https://images.unsplash.com/photo-1517519014922-8fc9f1a59b26?q=80&w=800&auto=format&fit=crop" alt="m1"><div class="meta"><h5>Mandala Bloom</h5><p>Ink & gold accents</p></div></div>
+        <div class="card" data-category="Canvas"><img src="https://images.unsplash.com/photo-1504198266286-1659872e6590?q=80&w=800&auto=format&fit=crop" alt="c1"><div class="meta"><h5>Sunrise Canvas</h5><p>Large canvas, oil</p></div></div>
+        <div class="card" data-category="Resin"><img src="https://images.unsplash.com/photo-1482192505345-5655af888cc4?q=80&w=800&auto=format&fit=crop" alt="r1"><div class="meta"><h5>Resin Ocean</h5><p>Resin & acrylic</p></div></div>
+        <div class="card" data-category="Portraits"><img src="https://images.unsplash.com/photo-1531123414780-f5e0b4a4a6a8?q=80&w=800&auto=format&fit=crop" alt="p2"><div class="meta"><h5>Portrait II</h5><p>Charcoal & wash</p></div></div>
+      </div>
+    </section>
+
+    <!-- Modal for fullscreen image -->
+    <div class="modal" id="modal" aria-hidden>
+      <button id="closeModal" style="position:absolute;right:18px;top:18px;background:transparent;color:#fff;border:none;font-size:22px;">✕</button>
+      <img src="" alt="full image" id="modalImg">
+    </div>
+
+    <!-- Custom Order -->
+    <section id="custom" style="margin-top:28px">
+      <h2 style="color:var(--accent)">Custom Order</h2>
+      <div class="two-col" style="margin-top:12px">
+        <div>
+          <form id="orderForm">
+            <div class="field"><label>Name</label><input type="text" id="name" required></div>
+            <div class="field"><label>Email</label><input type="email" id="email" required></div>
+            <div class="field"><label>Phone</label><input type="text" id="phone" required></div>
+            <div class="field"><label>Type of Art</label><select id="type"><option>Portraits</option><option>Mandala</option><option>Canvas</option><option>Resin</option></select></div>
+            <div class="field"><label>Size</label><select id="size"><option>8x10 inch</option><option>12x16 inch</option><option>18x24 inch</option><option>Custom</option></select></div>
+            <div class="field"><label>Colour theme / Notes</label><textarea id="notes" placeholder="Describe your idea..."></textarea></div>
+            <div class="field"><label>Upload reference image</label><input type="file" id="refImage" accept="image/*"></div>
+            <div style="display:flex;gap:10px;align-items:center"><button class="btn" type="submit">Submit Order</button><div id="orderStatus" style="color:var(--muted)"></div></div>
+          </form>
+        </div>
+        <aside>
+          <div style="background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow)">
+            <h3 style="margin-top:0;color:var(--accent)">How it works</h3>
+            <ol style="color:var(--muted)">
+              <li>Fill the form and upload reference (optional)</li>
+              <li>We will contact you for details & payment</li>
+              <li>We ship finished artwork or arrange pickup</li>
+            </ol>
+            <div style="margin-top:12px"><strong>Note:</strong> This form can be hooked to Firebase Storage / Firestore. See comments in the code for integration.</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- About & Pricing -->
+    <section id="about" style="margin-top:28px">
+      <h2 style="color:var(--accent)">About the Artist</h2>
+      <div class="two-col" style="margin-top:12px">
+        <div>
+          <p style="color:var(--muted)">Ilakshi is a contemporary artist specializing in portraiture, mandala designs and mixed-media canvas works. Her work blends subtle color palettes with detailed brushwork — inspired by nature and traditional motifs. She has exhibited in local galleries, taken part in art fairs and completed numerous commissioned pieces for collectors and interior designers.</p>
+          <h3 style="color:var(--accent)">Journey & Achievements</h3>
+          <ul style="color:var(--muted)">
+            <li>Graduated in Fine Arts (Year)</li>
+            <li>Exhibited at City Art Fair (Year)</li>
+            <li>Winner — Emerging Artist Award (Year)</li>
+          </ul>
+        </div>
+        <aside>
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="artist" style="width:100%;border-radius:12px;display:block">
+        </aside>
+      </div>
+    </section>
+
+    <section id="pricing" style="margin-top:22px">
+      <h2 style="color:var(--accent)">Pricing & Services</h2>
+      <div style="margin-top:12px;display:grid;grid-template-columns:1fr 320px;gap:18px">
+        <div>
+          <ul class="price-list">
+            <li><span>Portrait (8x10)</span><strong>₹1,500</strong></li>
+            <li><span>Portrait (12x16)</span><strong>₹3,000</strong></li>
+            <li><span>Canvas (18x24)</span><strong>₹7,000</strong></li>
+            <li><span>Resin Art (small)</span><strong>₹4,500</strong></li>
+            <li><span>Mandala (A4)</span><strong>₹1,200</strong></li>
+          </ul>
+        </div>
+        <aside>
+          <form id="enquiryForm">
+            <div class="field"><label>Name</label><input id="enqName" type="text"></div>
+            <div class="field"><label>Service interested</label><select id="enqService"><option>Portrait</option><option>Canvas</option><option>Resin</option><option>Mandala</option></select></div>
+            <div class="field"><label>Phone / Email</label><input id="enqContact" type="text"></div>
+            <button class="btn" id="sendEnq">Send Enquiry</button>
+            <div id="enqStatus" style="color:var(--muted);margin-top:8px"></div>
+          </form>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" style="margin-top:28px">
+      <h2 style="color:var(--accent)">Contact</h2>
+      <div style="display:flex;gap:18px;flex-wrap:wrap;margin-top:12px">
+        <div style="flex:1 1 320px;background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow)">
+          <p style="margin:0 0 8px">WhatsApp: <a href="https://wa.me/919999999999" target="_blank">+91 99999 99999</a></p>
+          <p style="margin:0 0 8px">Instagram: <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a></p>
+          <p style="margin:0 0 8px">Email: <a href="mailto:hello@ilakshisart.example">hello@ilakshisart.example</a></p>
+          <p style="margin:0">Phone: <a href="tel:+919999999999">+91 99999 99999</a></p>
+        </div>
+        <div style="flex:1 1 320px;background:var(--card);padding:0;border-radius:12px;overflow:hidden;box-shadow:var(--shadow)">
+          <!-- Google maps embed placeholder -->
+          <iframe src="https://www.google.com/maps?q=agra&output=embed" style="border:0;width:100%;height:260px" loading="lazy"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admin (simple frontend demo) -->
+    <section id="admin" style="margin-top:28px">
+      <h2 style="color:var(--accent)">Admin Panel (Demo)</h2>
+      <p style="color:var(--muted)">This is a basic frontend admin for demo only. For production use, use proper auth & server-side admin tools (Firebase Auth + Firestore rules).</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <input id="adminPass" type="password" placeholder="admin password" style="padding:8px;border-radius:8px;border:1px solid #eee">
+        <button class="btn" id="adminLogin">Login</button>
+        <div id="adminArea" style="display:none;width:100%">
+          <form id="uploadForm">
+            <div class="field"><label>Artwork title</label><input id="artTitle" type="text"></div>
+            <div class="field"><label>Category</label><select id="artCategory"><option>Portraits</option><option>Mandala</option><option>Canvas</option><option>Resin</option></select></div>
+            <div class="field"><label>Image</label><input id="artFile" type="file" accept="image/*"></div>
+            <button class="btn" id="uploadArt">Upload</button>
+            <div id="uploadStatus" style="color:var(--muted);margin-top:8px"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Ilakshi's Art — Handmade paintings & commissions</div>
+  </footer>
+
+  <script>
+    // Basic splash hide
+    const splash = document.getElementById('splash');
+    window.addEventListener('load', ()=>{ setTimeout(()=>{ splash.classList.add('hidden') },900) });
+
+    // Simple carousel
+    (function(){
+      const carousel = document.getElementById('carousel');
+      const imgs = Array.from(carousel.querySelectorAll('img'));
+      const dots = document.getElementById('dots');
+      let idx = 0;
+      imgs.forEach((i, j)=>{
+        const d = document.createElement('div');d.className='dot';d.addEventListener('click',()=>go(j));dots.appendChild(d);
+      });
+      const dotEls = Array.from(dots.children);
+      function show(){
+        imgs.forEach((im,i)=> im.style.display = i===idx? 'block':'none');
+        dotEls.forEach((d,i)=> d.classList.toggle('active', i===idx));
+      }
+      function go(i){ idx=i; show(); }
+      function next(){ idx = (idx+1)%imgs.length; show(); }
+      show(); let t = setInterval(next,4000);
+      carousel.addEventListener('mouseover', ()=> clearInterval(t));
+      carousel.addEventListener('mouseout', ()=> t = setInterval(next,4000));
+    })();
+
+    // Gallery filter + modal zoom
+    const grid = document.getElementById('grid');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    grid.addEventListener('click', (e)=>{
+      const card = e.target.closest('.card'); if(!card) return;
+      const img = card.querySelector('img'); modalImg.src = img.src; modal.classList.add('open');
+    });
+    document.getElementById('closeModal').addEventListener('click', ()=> modal.classList.remove('open'));
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('open') });
+
+    document.getElementById('filters').addEventListener('click',(e)=>{
+      if(e.target.tagName!=='BUTTON')return; const f = e.target.dataset.filter;
+      Array.from(grid.children).forEach(c=> c.style.display = (f==='all' || c.dataset.category===f) ? 'block':'none');
+    });
+
+    // Order form handling (frontend only). Points to integrate with Firebase below
+    const orderForm = document.getElementById('orderForm');
+    orderForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const status = document.getElementById('orderStatus'); status.textContent = 'Sending...';
+      // Demo: collect form data
+      const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        type: document.getElementById('type').value,
+        size: document.getElementById('size').value,
+        notes: document.getElementById('notes').value,
+        date: new Date().toISOString()
+      };
+      // If you want to integrate with Firebase Storage + Firestore:
+      // 1) Add Firebase SDK scripts in the <head>
+      // 2) Initialize firebase with your config
+      // 3) If a reference image is provided, upload it to firebase.storage() and get the URL
+      // 4) Save the order object to firestore collection 'orders' with imageURL if present
+      // Example (pseudo):
+      // const file = document.getElementById('refImage').files[0];
+      // const ref = firebase.storage().ref('orders/'+Date.now()+file.name);
+      // await ref.put(file);
+      // const imgUrl = await ref.getDownloadURL();
+      // await firebase.firestore().collection('orders').add({...data,imageUrl:imgUrl})
+
+      // For now, just simulate success
+      setTimeout(()=>{ status.textContent = 'Order submitted (demo). We will contact you soon.'; orderForm.reset()},800);
+    });
+
+    // Enquiry form demo
+    document.getElementById('sendEnq').addEventListener('click', (ev)=>{
+      ev.preventDefault(); document.getElementById('enqStatus').textContent = 'Enquiry sent (demo).'; setTimeout(()=>{document.getElementById('enqStatus').textContent=''},3000);
+    });
+
+    // Admin demo
+    document.getElementById('adminLogin').addEventListener('click', (ev)=>{
+      ev.preventDefault(); const pass = document.getElementById('adminPass').value; if(pass==='ilakshi-admin-2025'){ document.getElementById('adminArea').style.display='block'; document.getElementById('uploadStatus').textContent='Logged in (demo)'; } else { alert('Incorrect password (demo)') }
+    });
+    document.getElementById('uploadForm').addEventListener('submit',(ev)=>{
+      ev.preventDefault(); document.getElementById('uploadStatus').textContent='Uploading (demo)...'; setTimeout(()=>{ document.getElementById('uploadStatus').textContent='Artwork added to gallery (demo).'; // This is where you'd push to Firestore & Storage
+        // Optionally append to grid
+        const title = document.getElementById('artTitle').value || 'Untitled';
+        const cat = document.getElementById('artCategory').value;
+        const imgURL = 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop';
+        const card = document.createElement('div'); card.className='card'; card.dataset.category = cat; card.innerHTML = `<img src="${imgURL}" alt="${title}"><div class="meta"><h5>${title}</h5><p>${cat}</p></div>`; grid.prepend(card);
+      },900)
+    });
+
+    // small UTILS
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Accessibility: keyboard close modal
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') document.getElementById('modal').classList.remove('open') })
+  </script>
+</body>
+</html>

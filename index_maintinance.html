@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delhi Public School Agra | Maintenance</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #094703;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 30px;
+      font-weight: normal;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 20px;
+      font-size: 2rem;
+      margin-top: 20px;
+    }
+
+    .countdown div {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .countdown span {
+      display: block;
+      font-size: 1rem;
+      margin-top: 5px;
+      color: #094703;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #094703;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .countdown {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body background="bg.jpg">
+  <img src="logo.png" height="110" width="85">  
+  <h1>Delhi Public School Agra</h1>
+  <h2>Our website is currently under maintenance</h2>
+	<h3><font color="red">For any assistance call on : 9837699999</font></h3><BR>
+  <p>We’ll be back on 06 Augus, 2025 at 10:56 AM </p>
+
+  <img src="adv/ad2026.png" height=200 width=280><br><br><br>
+
+  <footer>
+    &copy; 2025 Delhi Public School Agra. All rights reserved.
+  </footer>
+
+  <script>
+    // Set the target date to 7 days from now
+    const resumeDate = new Date();
+    resumeDate.setDate(resumeDate.getDate() + 7);
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = resumeDate - now;
+
+      if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "<div>Website is now live!</div>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown(); // initial call
+  </script>
+
+</body>
+</html>

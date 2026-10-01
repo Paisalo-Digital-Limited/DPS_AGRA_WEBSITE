@@ -1,0 +1,159 @@
+
+    footer {
+      background: #002e11;
+      color: #fff;
+    }
+
+    footer a:hover {
+      color: #f9a602;
+    }
+
+    /* Logo & Title */
+    .footer-logo {
+      width: 80px;
+    }
+
+    .footer-school-title {
+      font-size: 1.3rem;
+    }
+
+    /* QR Codes */
+    .footer-qr-box img {
+      width: 95px;
+      height: 95px;
+    }
+
+    .footer-qr-box p {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* SEO Links */
+    .footer-seo-links h4 {
+      font-weight: 600;
+    }
+
+    .footer-seo-links a {
+      font-size: 15px;
+      line-height: 1.6;
+      transition: .3s;
+      overflow-wrap: break-word;
+    }
+
+    .footer-seo-links a:hover {
+      color: #f4b400;
+      padding-left: 6px;
+    }
+
+    /* Quick Links */
+    .footer-quick-link-left {
+      width: 58%;
+    }
+
+    .footer-quick-link-right {
+      width: 42%;
+      border-left: 1px solid rgba(255, 255, 255, .45);
+    }
+
+    .footer-quick-link-left a,
+    .footer-quick-link-right a {
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-wrap: break-word;
+    }
+
+    .footer-quick-link-left a:hover,
+    .footer-quick-link-right a:hover {
+      color: #f9a602;
+    }
+
+    /* Contact Us */
+    .footer-contact-info {
+      max-width: 550px;
+    }
+
+    .footer-contact-item {
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .25);
+      overflow-wrap: break-word;
+    }
+
+    .footer-contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .footer-icon {
+      color: #f9a602;
+      font-size: 26px;
+      min-width: 30px;
+      margin-top: 4px;
+    }
+
+    /* Bottom Navbar */
+    .footer-bottom-navbar.navbar {
+      background: #222 !important;
+    }
+
+    .footer-bottom-navbar .nav-link {
+      color: #fff !important;
+    }
+
+    .footer-bottom-navbar .nav-link:hover {
+      color: #f9a602 !important;
+    }
+
+    @media (min-width: 992px) and (max-width: 1399px) {
+      footer .row>div,
+      footer .row>div>.d-flex,
+      footer .row>div>.d-flex>div:last-child,
+      .footer-quick-link,
+      .footer-quick-link-left,
+      .footer-quick-link-right {
+        min-width: 0;
+      }
+
+      .footer-logo {
+        width: 60px !important;
+      }
+
+      .footer-qr-box img {
+        width: 85px;
+        height: 85px;
+      }
+    }
+
+
+    /* Mobile Responsive Custom Rules */
+    @media (max-width: 768px) {
+      .footer-qr-box img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .footer-seo-links a:hover {
+        padding-left: 0;
+      }
+
+      .footer-quick-link-left,
+      .footer-quick-link-right {
+        width: 50%;
+      }
+
+      .footer-quick-link-right {
+        border-left: 1px solid rgba(255, 255, 255, .35);
+      }
+
+      .footer-quick-link-left a,
+      .footer-quick-link-right a {
+        font-size: 14px;
+      }
+
+      .footer-contact-item {
+        gap: 10px;
+      }
+
+      .footer-icon {
+        margin: 0;
+      }
+    }

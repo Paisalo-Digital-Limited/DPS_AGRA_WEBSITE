@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <style>
+        body {
+          background-image: url('logo1.png');
+          background-repeat: no-repeat;
+          background-attachment: fixed;
+          background-position: center;
+        }
+        </style>
+<body>
+<center>
+    <h1>Delhi Public School Agra</h1>
+    <h2>Upload TC</h2>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+    <table>
+    <tr>
+    <td>Enter student's name :</td><td><input type="text" name="stname" id="stname"></td>
+    </tr>
+    <tr>
+    <td>Select TC PDF to upload:</td>
+<td><input type="file" name="fileToUpload" id="fileToUpload"></td>
+<td><input type="submit" value="Upload PDF" name="submit"></td></tr>
+
+</table>
+</form>
+</center>
+<font color="red"><br><br>* Rename pdf file as student name.<br>
+* If file name is not as student name, file will be shown in incorrect way on website.
+</font> 
+
+</body>
+</html>

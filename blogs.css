@@ -1,0 +1,322 @@
+/* ==========================================================
+   BLOG PAGE CSS
+   DPS AGRA
+========================================================== */
+
+.blog-main{
+    background:#fff;
+    padding:60px 0;
+}
+
+.blog-content{
+    max-width:900px;
+    margin:0 auto;
+}
+
+/* ==========================================================
+   BREADCRUMB
+========================================================== */
+.blog-breadcrumb{
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.blog-breadcrumb .breadcrumb-item a{
+    color: #0d6efd !important;
+    text-decoration: none;
+}
+
+.blog-breadcrumb .breadcrumb-item a:hover{
+    text-decoration: underline;
+}
+
+.blog-breadcrumb .breadcrumb-item.active{
+    color: #6c757d !important;
+}
+
+.blog-breadcrumb .breadcrumb-item + .breadcrumb-item::before{
+    color: #6c757d;
+}
+
+/* ==========================================================
+   BLOG TITLE
+========================================================== */
+
+.blog-content h1{
+    font-size:38px;
+    font-weight:700;
+    line-height:1.35;
+    color:#1d3557;
+    margin-bottom:15px;
+}
+
+/* ==========================================================
+   META
+========================================================== */
+
+.blog-meta{
+    color:#777;
+    font-size:15px;
+    margin-bottom:35px;
+}
+
+/* ==========================================================
+   H2
+========================================================== */
+
+.blog-content h2{
+    font-size:30px;
+    font-weight:700;
+    color:#1d3557;
+    margin-top:45px;
+    margin-bottom:20px;
+    line-height:1.4;
+}
+
+/* ==========================================================
+   H3
+========================================================== */
+
+.blog-content h3{
+    font-size:23px;
+    font-weight:600;
+    color:#1d3557;
+    margin-top:35px;
+    margin-bottom:15px;
+    line-height:1.5;
+}
+
+/* ==========================================================
+   PARAGRAPHS
+========================================================== */
+
+.blog-content p{
+    font-size:18px;
+    line-height:1.9;
+    color:#444;
+    margin-bottom:20px;
+    text-align:justify;
+}
+
+/* ==========================================================
+   LINKS
+========================================================== */
+
+.blog-content a{
+    color:#0d6efd;
+    text-decoration:none;
+}
+
+.blog-content a:hover{
+    text-decoration:underline;
+}
+
+/* ==========================================================
+   STRONG
+========================================================== */
+
+.blog-content strong{
+    font-weight:700;
+    color:#222;
+}
+
+/* ==========================================================
+   LIST
+========================================================== */
+
+.blog-content ul{
+    margin-top:20px;
+    margin-bottom:25px;
+    padding-left:25px;
+}
+
+.blog-content li{
+    margin-bottom:12px;
+    line-height:1.9;
+    color:#444;
+    font-size:18px;
+}
+
+/* ==========================================================
+   HR
+========================================================== */
+
+.blog-content hr{
+    border:none;
+    height:1px;
+    background:#dcdcdc;
+    margin:45px 0;
+}
+
+/* ==========================================================
+   FAQ
+========================================================== */
+
+.accordion{
+    margin-top:30px;
+}
+
+.accordion-item{
+    border:1px solid #dcdcdc;
+    border-radius:0;
+    margin-bottom:12px;
+}
+
+.accordion-button{
+    font-weight:600;
+    font-size:18px;
+    color:#1d3557;
+    padding:18px 22px;
+}
+
+.accordion-button:not(.collapsed){
+    background:#f8f9fa;
+    color:#1d3557;
+    box-shadow:none;
+}
+
+.accordion-button:focus{
+    box-shadow:none;
+}
+
+.accordion-body{
+    font-size:17px;
+    line-height:1.9;
+    color:#444;
+}
+
+/* ==========================================================
+   TABLE
+========================================================== */
+
+.blog-content table{
+    width:100%;
+    margin:25px 0;
+    border-collapse:collapse;
+}
+
+.blog-content table th,
+.blog-content table td{
+    border:1px solid #ddd;
+    padding:12px;
+}
+
+.blog-content table th{
+    background:#f5f5f5;
+}
+
+/* ==========================================================
+   IMAGES
+========================================================== */
+
+.blog-content img{
+    width:100%;
+    height:auto;
+    border-radius:5px;
+    margin:25px 0;
+}
+
+/* ==========================================================
+   BLOCKQUOTE
+========================================================== */
+
+.blog-content blockquote{
+    margin:30px 0;
+    padding:20px 25px;
+    border-left:5px solid #0d6efd;
+    background:#f8f9fa;
+    font-style:italic;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width:992px){
+
+.blog-main{
+    padding:45px 0;
+}
+
+.blog-content{
+    max-width:100%;
+}
+
+.blog-content h1{
+    font-size:34px;
+}
+
+.blog-content h2{
+    font-size:28px;
+}
+
+.blog-content h3{
+    font-size:22px;
+}
+
+.blog-content p,
+.blog-content li{
+    font-size:17px;
+}
+
+}
+
+@media (max-width:768px){
+
+.blog-main{
+    padding:35px 0;
+}
+
+.blog-content h1{
+    font-size:30px;
+}
+
+.blog-content h2{
+    font-size:25px;
+}
+
+.blog-content h3{
+    font-size:20px;
+}
+
+.blog-content p,
+.blog-content li{
+    font-size:16px;
+    line-height:1.8;
+}
+
+.blog-meta{
+    font-size:14px;
+}
+
+.accordion-button{
+    font-size:17px;
+}
+
+}
+
+@media (max-width:576px){
+
+.blog-content h1{
+    font-size:28px;
+}
+
+.blog-content h2{
+    font-size:23px;
+}
+
+.blog-content h3{
+    font-size:19px;
+}
+
+.blog-content p,
+.blog-content li{
+    font-size:15px;
+}
+
+.blog-breadcrumb{
+    font-size:14px;
+}
+
+}

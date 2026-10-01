@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en" class="w-100">
+
+<head>
+  <style>
+    .scroll-text {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      /* Adjust animation properties as needed */
+      animation: scroll-left 15s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    .button1 {
+      border: none;
+      color: white;
+      padding: 5px 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 10px;
+      margin: 1px 1px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      background-color: white;
+      color: black;
+      /* border: 2px solid #008CBA; */
+    }
+
+    .button2 {
+      border: none;
+      color: white;
+      padding: 5px 5px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 10px;
+      margin: 1px 1px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      background-color: orangered;
+      color: White;
+      border: none;
+    }
+
+    .button1:hover {
+      background-color: #008CBA;
+      color: white;
+    }
+
+    .button2:hover {
+      background-color: white;
+      color: black;
+      border: 2px solid orangered;
+    }
+
+    /* ==========================================
+       FOOTER CUSTOM STYLES (Unconverted styles with footer- prefix)
+       ========================================== */
+
+    footer {
+      background: #002e11;
+      color: #fff;
+    }
+
+    footer a:hover {
+      color: #f9a602;
+    }
+
+    /* Logo & Title */
+    .footer-logo {
+      width: 80px;
+    }
+
+    .footer-school-title {
+      font-size: 1.3rem;
+    }
+
+    /* QR Codes */
+    .footer-qr-box img {
+      width: 95px;
+      height: 95px;
+    }
+
+    .footer-qr-box p {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* SEO Links */
+    .footer-seo-links h4 {
+      font-weight: 600;
+    }
+
+    .footer-seo-links a {
+      font-size: 15px;
+      line-height: 1.6;
+      transition: .3s;
+      overflow-wrap: break-word;
+    }
+
+    .footer-seo-links a:hover {
+      color: #f4b400;
+      padding-left: 6px;
+    }
+
+    /* Quick Links */
+    .footer-quick-link-left {
+      width: 58%;
+    }
+
+    .footer-quick-link-right {
+      width: 42%;
+      border-left: 1px solid rgba(255, 255, 255, .45);
+    }
+
+    .footer-quick-link-left a,
+    .footer-quick-link-right a {
+      font-size: 16px;
+      line-height: 1.5;
+      overflow-wrap: break-word;
+    }
+
+    .footer-quick-link-left a:hover,
+    .footer-quick-link-right a:hover {
+      color: #f9a602;
+    }
+
+    /* Contact Us */
+    .footer-contact-info {
+      max-width: 550px;
+    }
+
+    .footer-contact-item {
+      gap: 18px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .25);
+      overflow-wrap: break-word;
+    }
+
+    .footer-contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .footer-icon {
+      color: #f9a602;
+      font-size: 26px;
+      min-width: 30px;
+      margin-top: 4px;
+    }
+
+    /* Bottom Navbar */
+    .footer-bottom-navbar.navbar {
+      background: #222 !important;
+    }
+
+    .footer-bottom-navbar .nav-link {
+      color: #fff !important;
+    }
+
+    .footer-bottom-navbar .nav-link:hover {
+      color: #f9a602 !important;
+    }
+
+    /* Tablet / Responsive Layout Fixes */
+    @media (min-width: 992px) and (max-width: 1399px) {
+      footer .row>div,
+      footer .row>div>.d-flex,
+      footer .row>div>.d-flex>div:last-child,
+      .footer-quick-link,
+      .footer-quick-link-left,
+      .footer-quick-link-right {
+        min-width: 0;
+      }
+
+      .footer-logo {
+        width: 60px !important;
+      }
+
+      .footer-qr-box img {
+        width: 85px;
+        height: 85px;
+      }
+    }
+
+    /* Mobile Responsive Custom Rules */
+    @media (max-width: 768px) {
+      .footer-qr-box img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .footer-seo-links a:hover {
+        padding-left: 0;
+      }
+
+      .footer-quick-link-left,
+      .footer-quick-link-right {
+        width: 50%;
+      }
+
+      .footer-quick-link-right {
+        border-left: 1px solid rgba(255, 255, 255, .35);
+      }
+
+      .footer-quick-link-left a,
+      .footer-quick-link-right a {
+        font-size: 14px;
+      }
+
+      .footer-contact-item {
+        gap: 10px;
+      }
+
+      .footer-icon {
+        margin: 0;
+      }
+    }
+
+    .coordinate-link {
+      color: #ffffff;
+      font-size: 0.7rem;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: .3s;
+    }
+
+    .coordinate-link i {
+      color: #f4b400;
+      /* Gold marker */
+      font-size: 1rem;
+    }
+
+    .coordinate-link:hover {
+      color: #f4b400;
+    }
+
+    .coordinate-link:hover i {
+      color: #f4b400;
+    }
+    /* Farhaan css start here  */
+
+    /* Hide toggler and horizontal line on desktop */
+
+    /* ==========================================
+       HEADER RESPONSIVE LAYOUT (Desktop, Tablet, Mobile)
+       ========================================== */
+
+    .header-grid {
+      display: grid;
+      width: 100%;
+      align-items: center;
+    }
+
+    /* Desktop (769px and above) */
+    @media (min-width: 769px) {
+      .header-grid {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "logo buttons"
+          "logo affiliation";
+        column-gap: 20px;
+        row-gap: 6px;
+      }
+
+      .header-logo {
+        grid-area: logo;
+        text-align: left;
+      }
+
+      .header-logo img {
+        max-height: 75px;
+        width: auto;
+      }
+
+      .header-hamburger {
+        display: none !important;
+      }
+
+      .header-buttons {
+        grid-area: buttons;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .header-affiliation {
+        grid-area: affiliation;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      .main-head hr.horizontal-line {
+        display: none !important;
+      }
+
+      .main-head .navbar-toggler {
+        display: none !important;
+      }
+
+      .main-nav .navbar-toggler {
+        display: none !important;
+      }
+
+      .mobile-menu-close {
+        display: none !important;
+      }
+
+      .heading-subheading {
+        text-align: center;
+      }
+
+      .heading-subheading p {
+        font-size: 15px;
+      }
+
+      .main-head .affiliation {
+        display: flex !important;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end !important;
+        gap: 15px;
+        width: auto !important;
+      }
+
+      .main-head .affiliation p {
+        font-size: 0.85rem !important;
+        color: #ffffff;
+        margin: 0 !important;
+      }
+
+      .main-head .affiliation .coordinate-link {
+        font-size: 0.85rem !important;
+        color: #ffffff;
+        border-left: 1px solid #ffffff;
+        padding-left: 12px;
+        margin: 0 !important;
+      }
+    }
+
+    /* TABLET (576px to 768px) */
+    @media (min-width: 576px) and (max-width: 768px) {
+      .header-grid {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "logo hamburger"
+          "buttons buttons"
+          "affiliation affiliation";
+        row-gap: 10px;
+      }
+
+      .header-logo {
+        grid-area: logo;
+        text-align: left;
+      }
+
+      .header-logo img {
+        max-height: 60px;
+        width: auto;
+      }
+
+      .header-hamburger {
+        grid-area: hamburger;
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .header-buttons {
+        grid-area: buttons;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .header-affiliation {
+        grid-area: affiliation;
+        width: 100%;
+      }
+    }
+
+    /* MOBILE (Below 576px) */
+    @media (max-width: 575.98px) {
+      .header-grid {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+          "logo logo"
+          "buttons hamburger"
+          "affiliation affiliation";
+        row-gap: 8px;
+      }
+
+      .header-logo {
+        grid-area: logo;
+        text-align: center;
+        padding-bottom: 2px;
+      }
+
+      .header-logo img {
+        max-width: 100%;
+        height: auto;
+        max-height: 48px;
+      }
+
+      .header-buttons {
+        grid-area: buttons;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 4px;
+      }
+
+      .header-hamburger {
+        grid-area: hamburger;
+        display: flex !important;
+        justify-content: flex-end;
+        align-items: center;
+      }
+
+      .header-hamburger .header-toggler-btn {
+        padding: 4px 8px !important;
+      }
+
+      .header-affiliation {
+        grid-area: affiliation;
+        width: 100%;
+      }
+    }
+
+    /* Shared Mobile & Tablet (<= 768px) */
+    @media (max-width: 768px) {
+      .heading-subheading {
+        text-align: center;
+      }
+
+      .header-toggler-btn {
+        color: rgba(255, 255, 255, .55) !important;
+        border-color: rgba(255, 255, 255, .1) !important;
+      }
+
+      .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      }
+
+      .main-nav {
+        border-bottom: none !important;
+      }
+
+      .school-title {
+        font-size: 1.2rem;
+      }
+
+      .heading-subheading p {
+        font-size: 0.4rem;
+      }
+
+      /* Horizontal line from your existing <hr> */
+      .main-head hr {
+        border: 0 !important;
+        border-top: 1px solid #ffffff !important;
+        margin: 8px 0 !important;
+        opacity: 0.5 !important;
+      }
+
+      .main-head .affiliation {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 100% !important;
+        overflow: hidden !important;
+        gap: 7px;
+      }
+
+      .main-head .affiliation p {
+        margin: 0 !important;
+        padding: 0 !important;
+        font-size: 8px !important;
+        white-space: nowrap !important;
+        flex-shrink: 1 !important;
+      }
+
+      .main-head .affiliation p i {
+        margin-right: 5px !important;
+        font-size: 12px !important;
+      }
+
+      .main-head .affiliation .coordinate-link {
+        display: inline-flex !important;
+        align-items: center !important;
+        border-left: 1px solid #ffffff !important;
+        padding-left: 5px !important;
+        margin: 0 !important;
+        font-size: 8px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+      }
+
+      .main-head .affiliation .coordinate-link i {
+        font-size: 12px !important;
+        margin-left: 0 !important;
+        margin-right: 4px !important;
+      }
+
+
+      .mobile-menu-close {
+        display: block !important;
+        position: absolute !important;
+
+        top: 20px !important;
+        right: 20px !important;
+
+        width: 40px !important;
+        height: 40px !important;
+
+        border: none !important;
+        background: transparent !important;
+
+        font-size: 32px !important;
+        line-height: 1 !important;
+
+        color: #333 !important;
+
+        cursor: pointer !important;
+
+        z-index: 100000 !important;
+      }
+
+      .mobile-menu-close:hover {
+        color: #000 !important;
+      }
+
+
+      /* ==============================
+       RIGHT SIDE MOBILE MENU
+       ============================== */
+
+      #navbarNavDropdown {
+        position: fixed !important;
+
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+
+        width: 300px !important;
+        max-width: 85vw !important;
+        height: 100vh !important;
+
+        background: #ffffff !important;
+
+        z-index: 99999 !important;
+
+        padding: 25px 25px 25px 25px !important;
+
+        overflow-y: auto !important;
+
+        display: block !important;
+
+        transform: translateX(100%) !important;
+
+        transition: transform 0.3s ease-in-out !important;
+      }
+
+
+      /* MENU OPEN */
+      #navbarNavDropdown.show {
+        transform: translateX(0) !important;
+      }
+
+
+      /* MENU ITEMS */
+      #navbarNavDropdown .navbar-nav {
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        width: 100% !important;
+
+        gap: 0 !important;
+      }
+
+
+      #navbarNavDropdown .nav-item {
+        width: 100% !important;
+      }
+
+
+      #navbarNavDropdown .nav-link {
+        width: 100% !important;
+
+        padding: 12px 5px !important;
+
+        color: #333 !important;
+
+        font-size: 16px !important;
+      }
+
+
+      /* DROPDOWN */
+      #navbarNavDropdown .dropdown-menu {
+        position: static !important;
+
+        width: 100% !important;
+
+        border: 0 !important;
+
+        box-shadow: none !important;
+      }
+
+    }
+
+    /* Farhaan css end here  */
+  </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="canonical" href="https://www.dps.ac.in/dpsedge.html">
+  <meta name="facebook-domain-verification" content="uxq1dkpi6xyqjpm0x0j44hjcj1wy0u" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/dacf0425e5.js" crossorigin="anonymous"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJ94DHMW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-WKJ94DHMW3');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KTPHW3MZ');</script>
+  <!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <title>DPS Edge | Why Choose DPS Agra for CBSE Education</title>
+  <meta name="description"
+    content="Smart classrooms, robotics labs, experienced faculty, sports facilities and a vibrant co-curricular programme – discover what sets DPS Agra apart as a leading CBSE school. Book a campus visit today.">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+      fetch('Components/Footer/footer.php')
+          .then(response => response.text())
+          .then(data => {
+              document.getElementById('footer').innerHTML = data;
+          })
+          .catch(error => {
+              console.error('Header loading error:', error);
+          });
+      </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTPHW3MZ" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- <div class="splash-container">
+      <img src="img/logo.png" alt="" />
+      <span class="school-name">DPS AGRA ...</span>
+    </div> -->
+  <header>
+    <!-- <div class="container-fluid bg-warning font-weight-bold" style="font-size: 0.9em">
+      <div class="scroll-text"><B>Admissions Open 2026-27<B></div>
+    </div> -->
+    <div class="container-fluid pt-3 pb-2 px-3 px-md-4 main-head">
+      <div class="header-grid">
+        <!-- Logo -->
+        <div class="header-logo">
+          <a href="index.html">
+            <img loading="lazy" src="img/dps-logo-combine.png" class="img-fluid" alt="Delhi Public School Agra" />
+          </a>
+        </div>
+
+        <!-- Hamburger button -->
+        <div class="header-hamburger">
+          <button class="navbar-toggler header-toggler-btn" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+
+        <!-- 3 Buttons -->
+        <div class="header-buttons">
+          <a href="https://forms.edunexttechnologies.com/forms/dps-agra/registration/"><button
+              class="button2 rounded-1">Online Admission</button></a>
+          <a href="https://dpsagra.edunexttechnologies.com/"><button class="button1 rounded-1">ERP Login</button></a>
+          <a href="https://edunexttechnologies.com/portal-help.php"><button class="button1 rounded-1">Mobile App</button></a>
+        </div>
+
+        <!-- Affiliation & Coordinates -->
+        <div class="header-affiliation">
+          <hr class="horizontal-line">
+          <div class="align-items-center justify-content-center affiliation">
+            <p class="mb-0 text-white"><i class="fas fa-shield-alt" style="margin-right: 5px"></i>CBSE Affiliation No. 2130568</p>
+            <a href="https://maps.google.com/?q=27.206139,77.928556" target="_blank" class="coordinate-link">
+              <i class="fas fa-map-marker-alt me-2"></i>
+              Coordinates: 27°12'22.1"N, 77°55'42.8"E
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="navbar sticky-top navbar-light navbar-expand-md main-nav" aria-label="navbar">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <button type="button" class="mobile-menu-close" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+          aria-label="Close menu">
+          &times;
+        </button>
+        <ul class="navbar-nav w-100 justify-content-around">
+
+          <!-- Home -->
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <i class="fas fa-home me-2" aria-hidden="true"></i>
+              <span>Home</span>
+            </a>
+          </li>
+
+          <!-- About Us -->
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              About Us
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="principal-message.html" class="dropdown-item">
+                  Principal's Message
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="about-us.html" class="dropdown-item">
+                  About DPS Agra
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="our-milestones.html" class="dropdown-item">
+                  Our Milestones
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="dps-edge.html" class="dropdown-item">
+                  DPS Edge
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="rules-regulation.html" class="dropdown-item">
+                  Rules & Regulations
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <!-- Academics -->
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Academics
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="achievements.html" class="dropdown-item">
+                  Achievements
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="stages-of-study.html" class="dropdown-item">
+                  Stages Of Study
+                </a>
+              </li>
+
+              <!-- <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="books.html" class="dropdown-item">
+                  Book Set
+                </a>
+              </li> -->
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="streams-subject.html" class="dropdown-item">
+                  Streams & Subjects
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="examination-promotion.html" class="dropdown-item">
+                  Examination & Promotion
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="board-results.html" class="dropdown-item">
+                  Board Results
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <!-- Life at DPS Agra -->
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Life at DPS Agra
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="activity.html" class="dropdown-item">
+                  Activities
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="ncc.html" class="dropdown-item">
+                  NCC
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="photo-gallery.html" class="dropdown-item">
+                  Gallery
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="security.html" class="dropdown-item">
+                  Security
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <!-- Admission -->
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Admission
+            </a>
+
+            <ul class="dropdown-menu">
+
+              <li>
+                <a href="https://forms.edunexttechnologies.com/forms/dps-agra/" class="dropdown-item">
+                  Registration
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="fee-structure.html" class="dropdown-item">
+                  Fee Structure
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+
+              <li>
+                <a href="admission-overview.html" class="dropdown-item">
+                  Admission Overview
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="admission-criteria.html" class="dropdown-item">
+                  Admission Criteria
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="pdf/MA_DIS.pdf" class="dropdown-item">
+                  Mandatory Disclosure
+                </a>
+              </li>
+
+              <div class="dropdown-divider"></div>
+
+              <li>
+                <a href="pdf/Prospectus 27-28.pdf" class="dropdown-item">
+                  Prospectus
+                </a>
+              </li>
+
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <a href="blogs.html" class="nav-link">
+              Blogs
+            </a>
+          </li>
+
+          <!-- Contact -->
+          <li class="nav-item">
+            <a href="contact-us.html" class="nav-link">
+              Contact Us
+            </a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="py-4 px-5">
+    <h1 class="text-center mb-4">Stages of Study</h1>
+    <p class="text-justify">
+      The National Education Policy envisions an education system rooted in Indian ethos that contributes directly to
+      transforming India.
+      The Policy envisages that the curriculum and pedagogy of our institutions must develop among the students a deep
+      sense of respect
+      towards the Fundamental Duties and Constitutional values, bonding with one’s country, and a conscious awareness of
+      one’s roles and
+      responsibilities in a changing world. The vision of the Policy is to instill among the learners a deep-rooted
+      pride in being Indian,
+      not only in thought, but also in spirit, intellect, and deeds, as well as to develop knowledge, skills, values,
+      and dispositions that
+      support responsible commitment to human rights, sustainable development and living, and global well-being, thereby
+      reflecting a
+      truly global citizen.
+    </p>
+    <h5 class="text-left mb-4">Restructuring school curriculum and pedagogy in a new 5+3+3+4 design</h5>
+    <p class="text-justify">
+      The curricular and pedagogical structure of school education will be reconfigured to make it responsive and
+      relevant to the
+      developmental needs and interests of learners at different stages of their development, corresponding to the age
+      ranges of 3-8,
+      8-11, 11-14, and 14-18 years, respectively. The curricular and pedagogical structure and the curricular framework
+      for school
+      education will therefore be guided by a 5+3+3+4 design, consisting of the Foundational Stage (in two parts, that
+      is, 3 years of
+      pre-school + 2 years in primary school in Grades 1-2; both together covering ages 3-8), Preparatory Stage (Grades
+      3-5, covering ages 8-11), Middle Stage (Grades 6-8, covering ages 11-14), and Secondary Stage (Grades 9-12 in two
+      phases, i.e., 9 and 10 in the first and 11 and 12 in the second, covering ages 14-18).
+      Our pedagogy is not confined to the books only, it is based on Project based Learning, Experiential Learning and
+      Concerted learning with
+      the aim to blend consistency and variety in teaching methods to foster the intellectual growth required to achieve
+      academic success.
+      All this is adopted with the aim to help students improve their learning outcomes and achieve their full
+      potential.
+
+    </p>
+    <div class="card bg-lavender text-light my-4">
+      <div class="row">
+        <div class="col-lg d-flex justify-content-center align-items-center ps-4">
+          <img src="img/preprimary.jpg" alt="" class="img-thumbnail" />
+        </div>
+        <div class="col-lg-9">
+          <h6 class="card-header">Foundational Stage (in two parts, that is, 3 years of pre-school + 2 years in primary
+            school in Grades 1-2; both together covering ages 3-8)</h6>
+          <div class="card-body" style="font-size: 0.95em">
+            <p class="text-justify">
+              Early Childhood Care and Education ideally consists of flexible, multi-faceted, multi-level, play-based,
+              activity-based, and inquiry-based learning, comprising of alphabets, languages, numbers, counting,
+              colours, shapes, indoor and outdoor play, puzzles and logical thinking, problem-solving, drawing, painting
+              and other visual art, craft, drama and puppetry, music and movement. It also includes a focus on
+              developing social capacities, sensitivity, good behaviour, courtesy, ethics, personal and public
+              cleanliness, teamwork, and cooperation.
+              There is no contour of knowledge and each student gets an opportunity to participate in group activities
+              and project work. More emphasis is paid on learning by doing along with cognitive approach.
+              We emphasise on -
+              <br>• Development based curriculum for learning essential concepts of all the subjects.
+              <br>• Conducive teaching-learning environment.
+              <br>• Developing positive attitude, healthy habits and values like dignity, honesty and morality.
+              <br>• Innovative use of technology that helps to garner and harness the varying potential within each
+              student for which we have smart classrooms equipped with 65” LED screens and Glass Boards.
+              <br>• Providing 21st century information using modern resources and technology. Combining the traditional
+              library collections and services with up-to-date computer labs and internet-accessible resources.
+              <br>• Co-scholastic activities that encompass everything from traditional sports such as swimming,
+              skating, lawn tennis, yoga, football, hockey, cricket and athletics to more culturally oriented pursuits
+              like art, dance, drama and music, along with a host of other opportunities through numerous events with
+              100% participation.
+              <br>• Having separate play fields for different sports. We have the most modern Jungle Gym and a field
+              equipped with Chess Board.
+              <br>• Regular assessments to understand and record every student’s learning curve and capabilities; and to
+              provide a way forward for progress.
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-danger text-light mb-4">
+      <div class="row">
+        <div class="col-lg d-flex justify-content-center align-items-center ps-4">
+          <img src="img/primary.png" alt="" class="img-thumbnail" />
+        </div>
+        <div class="col-lg-9">
+          <h4 class="card-header">Preparatory Stage (Grades 3-5, covering ages 8-11)</h4>
+          <div class="card-body" style="font-size: 0.9em">
+            <p class="text-justify">
+              During this three-year period the student's intellectual, aesthetic, physical and cultural growth and
+              development are intensified and extended to a foundation course, designed to suit students from all
+              educational backgrounds. The school also aims to develop critical thinking, creativity, communication
+              skills and collaboration among the students.
+              With the aim to develop leadership qualities, making students self-reliant and shouldering
+              responsibilities at this level, the school has a junior council for the students of middle section.
+              A smooth transition from childhood to adolescence is facilitated by imparting comprehensive value and need
+              based education
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-warning mb-4">
+      <div class="row">
+        <div class="col-lg d-flex justify-content-center align-items-center ps-4 py-3">
+          <img src="img/middle.jpg" alt="" class="img-thumbnail" />
+        </div>
+        <div class="col-lg-9">
+          <h4 class="card-header">Middle Stage (Grades 6-8, covering ages 11-14)</h4>
+          <div class="card-body">
+            <p class="text-justify mb-0">
+              The Middle Stage will comprise three years of education, building on the pedagogical and curricular style
+              of the
+              Preparatory Stage, but with the introduction of subject teachers for learning and discussion of the more
+              abstract
+              concepts in each subject that students will be ready for at this stage across the sciences, mathematics,
+              arts,
+              social sciences, and humanities. Experiential learning within each subject, and explorations of relations
+              among
+              different subjects, will be encouraged and emphasized despite the introduction of more specialized
+              subjects and
+              subject teachers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card bg-primary text-light mb-4">
+      <div class="row">
+        <div class="col-lg d-flex justify-content-center align-items-center ps-4 py-3">
+          <img src="img/secondary.jpg" alt="" class="img-thumbnail" />
+        </div>
+        <div class="col-lg-9">
+          <h6 class="card-header">Secondary Stage (Grades 9-12 in two phases, i.e., 9 and 10 in the first and 11 and 12
+            in the second, covering ages 14-18)</h6>
+          <div class="card-body">
+            <p class="text-justify mb-0">
+              The Secondary Stage will comprise of four years of multidisciplinary study, building on the
+              subject-oriented pedagogical and curricular style of the Middle Stage, but with greater depth, greater
+              critical thinking, greater attention to life aspirations, and greater flexibility and student choice of
+              subjects.
+              The school has personalized study strategy to help students plan better and study smarter. Different
+              diagnostic assessments are made by designing different worksheets to bridge the gap in learning and
+              prepare the students to face the All-India Secondary School Curriculum.
+              This pattern of education is leading to the All-India Secondary School Certificate Examination (AISSCE)
+              conducted by the Central Board of Secondary Education, New Delhi. The school divides its education into
+              three main streams i.e., Science, Commerce and Humanities according to the student’s aptitude and
+              interest. We have four main goals for our students-
+              <br>1. Performance in Board Exams.
+              <br>2. Praiseworthy character
+              <br>3. Pleasing personality
+              <br>4. Preparing for future
+              The school conducts interactive talks with the intellectuals of different arenas to make its students well
+              aware and acquainted to the domain they want to get into after completing their school and to open up a
+              wide corridor of career opportunities for the students.
+              School also conducts Next Level Classes for the students of grade XII to guide them to get into a good
+              college after school.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+  
+  <footer id="footer"></footer>
+</body>
+
+</html>

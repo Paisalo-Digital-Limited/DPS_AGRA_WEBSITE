@@ -1,0 +1,205 @@
+html {
+  // === Scrollbar ===
+  scrollbar-width: thin;
+  scrollbar-color: #038847 #002e11;
+  overflow: hidden;
+  animation: showScroll 0ms 2500ms 1 forwards linear;
+  @keyframes showScroll {
+    100% {
+      overflow-y: visible;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 0.5rem;
+    background: #002e11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #038847;
+    border: 1px solid #54e600;
+  }
+
+  // === Font ===
+  *:not(code) {
+    font-family: "Poppins", "Times New Roman", sans-serif;
+    outline: none;
+  }
+}
+
+// === Splash Screen ===
+.splash-container {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  isolation: isolate;
+  color: white;
+  font-family: "Poppins", "Times New Roman", sans-serif;
+  font-weight: bold;
+  background: #002e11;
+  pointer-events: none;
+  animation: fade 1250ms 1500ms 1 forwards ease-out;
+  @keyframes fade {
+    100% {
+      opacity: 0;
+    }
+  }
+  img {
+    position: absolute;
+    width: 10rem;
+    top: 50%;
+    left: 50%;
+    z-index: 9;
+    isolation: isolate;
+    transform: translate(-50%, -100%);
+    @media screen and (min-width: 1200px) {
+      transform: translate(-80%, -50%);
+      animation: shiftLogo 500ms 500ms 1 forwards ease-in-out;
+      @keyframes shiftLogo {
+        100% {
+          left: 35%;
+        }
+      }
+    }
+  }
+  .school-name {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    font-size: 4em;
+    transform: translate(-50%, 50%);
+    @media screen and (min-width: 1200px) {
+      transform: translate(-25%, -50%);
+      font-size: 6em;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      background: #002e11;
+      width: 100%;
+      height: 100%;
+      inset: 0;
+      transform-origin: right;
+      animation: revealName 600ms 750ms 1 forwards ease-out;
+      @keyframes revealName {
+        100% {
+          transform: scaleX(0);
+        }
+      }
+    }
+  }
+}
+
+// === Side Links ===
+.side-links {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  gap: clamp(2em, 1em + 5vh, 5em);
+  writing-mode: tb;
+  z-index: 10;
+  margin-inline-start: 10rem;
+  transition: all 500ms ease-out;
+  &-left {
+    inset: 0 auto 0 0;
+  }
+  &-right {
+    transform: rotateZ(180deg);
+    inset: 0 0 0 auto;
+  }
+  a {
+    padding-block-end: 0.5em;
+    transform: translateX(-10%);
+    transition: all 200ms ease-out;
+    &:where(:hover, :focus) {
+      transform: translateX(0%);
+    }
+  }
+}
+
+// === Navbar & Footer for Splash Screen ===
+.navbar,
+marquee {
+  opacity: 0;
+  pointer-events: none;
+  animation: showNavbar 100ms 2250ms 1 forwards linear;
+  @keyframes showNavbar {
+    100% {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+.main-nav {
+  background: #dc9202;
+  a:where(:hover, :focus) {
+    background: #ffaa00;
+  }
+}
+.footer {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// === General Style ===
+.main-head {
+  background: #002e11;
+}
+#event {
+  background: #03d871;
+  img {
+    filter: brightness(70%);
+  }
+}
+.activity {
+  img {
+    width: 2rem;
+    grid-column: 1 / 2;
+  }
+  a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0 0 0 0.5em;
+    &:where(:hover, :focus) {
+      color: hsl(0, 0%, 80%);
+    }
+  }
+}
+.quick-link {
+  a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0.2em 0;
+    &:where(:hover, :focus) {
+      color: hsl(0, 0%, 80%);
+    }
+  }
+}
+a {
+  &:hover .btn-title,
+  &:focus .btn-title {
+    background: #00af5b;
+  }
+  .btn-title {
+    background: #002e11;
+    border: 0.1em solid #dc9202;
+    margin: 40% 0 0;
+    transition: all 300ms ease-in-out;
+  }
+}
+
+// === Creating Extra Classes ===
+.text-justify {
+  text-align: justify;
+}
+.bg-lavender {
+  background: hsl(280, 100%, 50%);
+}
+.place-items-center {
+  place-items: center;
+}
+.fs-small {
+  font-size: 0.8em;
+}
+caption {
+  caption-side: top;
+  text-align: center;
+}

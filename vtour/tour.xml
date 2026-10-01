@@ -1,0 +1,359 @@
+﻿<krpano version="1.19" title="Virtual Tour">
+
+	<include url="skin/vtourskin.xml" />
+
+	<!-- customize skin settings: maps, gyro, webvr, thumbnails, tooltips, layout, design, ... -->
+	<skin_settings maps="true"
+	               maps_type="google"
+	               maps_bing_api_key=""
+	               maps_google_api_key=""
+	               maps_zoombuttons="false"
+	               gyro="true"
+	               webvr="true"
+	               webvr_gyro_keeplookingdirection="false"
+	               webvr_prev_next_hotspots="true"
+	               littleplanetintro="true"
+	               title="true"
+	               thumbs="true"
+	               thumbs_width="120" thumbs_height="80" thumbs_padding="10" thumbs_crop="0|40|240|160"
+	               thumbs_opened="true"
+	               thumbs_text="true"
+	               thumbs_dragging="true"
+	               thumbs_onhoverscrolling="false"
+	               thumbs_scrollbuttons="true"
+	               thumbs_scrollindicator="false"
+	               thumbs_loop="false"
+	               tooltips_buttons="false"
+	               tooltips_thumbs="false"
+	               tooltips_hotspots="false"
+	               tooltips_mapspots="false"
+	               deeplinking="false"
+	               loadscene_flags="MERGE"
+	               loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"
+	               loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"
+	               loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"
+	               loadingtext="loading..."
+	               layout_width="100%"
+	               layout_maxwidth="814"
+	               controlbar_width="-24"
+	               controlbar_height="40"
+	               controlbar_offset="20"
+	               controlbar_offset_closed="-40"
+	               controlbar_overlap.no-fractionalscaling="10"
+	               controlbar_overlap.fractionalscaling="0"
+	               design_skin_images="vtourskin.png"
+	               design_bgcolor="#11171E"
+	               design_bgalpha="0.8"
+	               design_bgborder="0"
+	               design_bgroundedge="10"
+	               design_bgshadow="0 4 10 0x000000 0.3"
+	               design_thumbborder_bgborder="3 0xFFFFFF 1.0"
+	               design_thumbborder_padding="2"
+	               design_thumbborder_bgroundedge="0"
+	               design_text_css="color:#FFFFFF; font-family:Arial;"
+	               design_text_shadow="1"
+	               />
+
+	<!--
+	    For an alternative skin design either change the <skin_settings> values 
+	    from above or optionally include one of the predefined designs from below.
+	-->
+	<!-- <include url="skin/vtourskin_design_flat_light.xml"  />
+	<include url="skin/vtourskin_design_glass.xml"       />
+	<include url="skin/vtourskin_design_ultra_light.xml" />
+	<include url="skin/vtourskin_design_117.xml"         />
+	<include url="skin/vtourskin_design_117round.xml"    />
+	<include url="skin/vtourskin_design_black.xml"       /> -->
+
+
+	<!-- startup action - load the first scene -->
+	<action name="startup" autorun="onstart">
+		if(startscene === null OR !scene[get(startscene)], copy(startscene,scene[0].name); );
+		loadscene(get(startscene), null, MERGE);
+		if(startactions !== null, startactions() );
+	</action>
+
+
+	<scene name="scene_Facade" title="Facade" onstart="" thumburl="panos/Facade.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Auditorium" title="Auditorium" onstart="" thumburl="panos/Auditorium.tiles/thumb.jpg" lat="" lng="" heading=""> -->
+ <autorotate enabled="true" 
+            waittime="1.0" 
+            accel="1" 
+            speed="3"
+            horizon="0" 
+            tofov="90" 
+            />
+		<view hlookat="230.0" vlookat="0.0" fovtype="MFOV" fov="100" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Facade.tiles/preview.jpg" />
+
+		<image>
+		  <text text="Facade" fontsize="20" color="0xFFFFFF" x="10" y="10" />
+			<cube url="panos/Facade.tiles/pano_%s.jpg" />
+		</image>
+		<hotspot name="spot1" style="skin_hotspotstyle" ath="-134.803" atv="2.305" linkedscene="scene_entrance_lobby" />
+
+	</scene>
+
+	<scene name="scene_Entrance_Lobby" title="Entrance Lobby" onstart="" thumburl="panos/Entrance_Lobby.tiles/thumb.jpg" lat="" lng="" heading="">
+
+
+		<view hlookat="100.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Entrance_Lobby.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Entrance_Lobby.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+<scene name="scene_Auditorium" title="Auditorium" onstart="" thumburl="panos/Auditorium.tiles/thumb.jpg" lat="" lng="" heading="">
+
+
+		<view hlookat="100.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Auditorium.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Auditorium.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+<scene name="scene_Swimming_Pool" title="Swimming Pool" onstart="" thumburl="panos/Swimming_Pool.tiles/thumb.jpg" lat="27.20626853" lng="77.92820206" heading="0.0">
+	
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Swimming_Pool.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Swimming_Pool.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Lawn_Tennis_Court" title="Lawn Tennis Court" onstart="" thumburl="panos/Lawn_Tennis_Court.tiles/thumb.jpg" lat="27.20686614" lng="77.92859944" heading="0.0">
+	
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Lawn_Tennis_Court.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Lawn_Tennis_Court.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Jungle_Gym" title="Jungle Gym" onstart="" thumburl="panos/Jungle_Gym.tiles/thumb.jpg" lat="27.20580289" lng="77.92924308" heading="0.0">
+	
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Jungle_Gym.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Jungle_Gym.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Music_Room" title="Music Room" onstart="" thumburl="panos/Music_Room.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Dance_Room" title="Dance Room" onstart="" thumburl="panos/Dance_Room.tiles/thumb.jpg" lat="" lng="" heading=""> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Music_Room.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Music_Room.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+
+<scene name="scene_Dance_Room" title="Dance Room" onstart="" thumburl="panos/Dance_Room.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Entrance_Lobby" title="Entrance Lobby" onstart="" thumburl="panos/Entrance_Lobby.tiles/thumb.jpg" lat="" lng="" heading=""> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Dance_Room.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Dance_Room.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Soccer_Field" title="Soccer Field" onstart="" thumburl="panos/Soccer_Field.tiles/thumb.jpg" lat="27.20713564" lng="77.92985489" heading="0.0">
+
+	<!-- <scene name="scene_Facade" title="Facade" onstart="" thumburl="panos/Facade.tiles/thumb.jpg" lat="" lng="" heading=""> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Soccer_Field.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Soccer_Field.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Library" title="Library" onstart="" thumburl="panos/Library.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Jungle_Gym" title="Jungle Gym" onstart="" thumburl="panos/Jungle_Gym.tiles/thumb.jpg" lat="27.20580289" lng="77.92924308" heading="0.0"> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Library.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Library.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Chemistry_Lab" title="Chemistry Lab" onstart="" thumburl="panos/Chemistry_Lab.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Junior_Wing" title="Junior School" onstart="" thumburl="panos/Junior_Wing.tiles/thumb.jpg" lat="27.23658750" lng="78.01809847" heading="0.0"> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Chemistry_Lab.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Chemistry_Lab.tiles/pano_%s.jpg" />
+		</image>
+	
+	</scene>
+
+	<scene name="scene_Biology_Lab" title="Biology Lab" onstart="" thumburl="panos/Biology_Lab.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Lawn_Tennis_Court" title="Lawn Tennis Court" onstart="" thumburl="panos/Lawn_Tennis_Court.tiles/thumb.jpg" lat="27.20686614" lng="77.92859944" heading="0.0"> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Biology_Lab.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Biology_Lab.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Physics_Lab" title="Physics Lab" onstart="" thumburl="panos/Physics_Lab.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Library" title="Library" onstart="" thumburl="panos/Library.tiles/thumb.jpg" lat="" lng="" heading=""> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Physics_Lab.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Physics_Lab.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+<scene name="scene_Computer_Lab" title="Computer Lab" onstart="" thumburl="panos/Computer_Lab.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Music_Room" title="Music Room" onstart="" thumburl="panos/Music_Room.tiles/thumb.jpg" lat="" lng="" heading=""> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Computer_Lab.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Computer_Lab.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+<scene name="scene_Class_Room" title="Class Room" onstart="" thumburl="panos/Class_Room.tiles/thumb.jpg" lat="" lng="" heading="">
+	<!-- <scene name="scene_Physics_Lab" title="Physics Lab" onstart="" thumburl="panos/Physics_Lab.tiles/thumb.jpg" lat="" lng="" heading=""> -->
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Class_Room.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/Class_Room.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Junior_Wing" title="Junior School" onstart="" thumburl="panos/Junior_Wing.tiles/thumb.jpg" lat="27.23658750" lng="78.01809847" heading="0.0">
+
+	
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Junior_Wing.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Junior_Wing.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+<scene name="scene_Courtyard" title="Jr. Courtyard" onstart="" thumburl="panos/Courtyard.tiles/thumb.jpg" lat="" lng="" heading="">
+	
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Courtyard.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Courtyard.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Toy_Room" title="Jr. Toy Room" onstart="" thumburl="panos/Toy_Room.tiles/thumb.jpg" lat="" lng="" heading="">
+	
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Toy_Room.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Toy_Room.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Play_Ground_1" title="Jr. Play Ground 1" onstart="" thumburl="panos/Play_Ground_1.tiles/thumb.jpg" lat="27.23538583" lng="78.01800494" heading="0.0">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Play_Ground_1.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Play_Ground_1.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_Play_Ground_2" title="Jr. Play Ground 2" onstart="" thumburl="panos/Play_Ground_2.tiles/thumb.jpg" lat="27.23490478" lng="78.01797489" heading="0.0">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/Play_Ground_2.tiles/preview.jpg" />
+
+		<image prealign="0|0.0|0">
+			<cube url="panos/Play_Ground_2.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+	<scene name="scene_School_View" title="School View" onstart="" thumburl="panos/School_View.tiles/thumb.jpg" lat="27.20661981" lng="77.92949397" heading="0.0">
+
+		<view hlookat="0.0" vlookat="0.0" fovtype="MFOV" fov="120" maxpixelzoom="2.0" fovmin="70" fovmax="140" limitview="auto" />
+
+		<preview url="panos/School_View.tiles/preview.jpg" />
+
+		<image>
+			<cube url="panos/School_View.tiles/pano_%s.jpg" />
+		</image>
+
+	</scene>
+
+
+</krpano>

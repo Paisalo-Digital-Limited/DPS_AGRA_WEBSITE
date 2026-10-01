@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Maintenance Page</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Home Button */
+        .home-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .home-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Animated Text */
+        .main-text {
+            font-size: 2.2rem;
+            font-weight: 600;
+            text-align: center;
+            animation: fadeInUp 2s ease-in-out;
+        }
+
+        .sub-text {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Glowing effect */
+        .glow {
+            text-shadow: 0 0 10px rgba(255,255,255,0.8),
+                         0 0 20px rgba(255,255,255,0.6),
+                         0 0 30px rgba(255,255,255,0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Home Button -->
+    <a href="https://www.dps.ac.in" class="btn btn-light home-btn">🏠 Home</a>
+
+    <!-- Main Content -->
+    <div class="text-center">
+        <div class="main-text glow">
+            Entrance Syllabus Page<br>Under Maintenance
+        </div>
+        <div class="sub-text">
+            We'll be back shortly.
+        </div>
+    </div>
+
+</body>
+</html>
