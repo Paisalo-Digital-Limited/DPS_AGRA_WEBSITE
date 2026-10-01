@@ -143,6 +143,31 @@ marquee {
 .main-head {
   background: #002e11;
 }
+
+.site-logo-banner {
+  display: inline-block;
+  img {
+    display: block;
+    width: 460px;
+    max-width: 100%;
+    height: auto;
+    max-height: 54px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-logo-banner img {
+    width: 380px;
+    max-height: 46px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .site-logo-banner img {
+    width: 300px;
+    max-height: 38px;
+  }
+}
 #event {
   background: #03d871;
   img {

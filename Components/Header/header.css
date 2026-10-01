@@ -11,7 +11,7 @@
               "logo buttons"
               "logo affiliation";
             column-gap: 20px;
-            row-gap: 6px;
+            row-gap: 8px;
           }
 
           .header-logo {
@@ -20,8 +20,11 @@
           }
 
           .header-logo img {
-            max-height: 75px;
-            width: auto;
+            display: block;
+            width: 520px;
+            max-width: 100%;
+            height: auto;
+            max-height: 60px;
           }
 
           .header-hamburger {
@@ -40,6 +43,27 @@
             grid-area: affiliation;
             display: flex;
             justify-content: flex-end;
+            align-items: flex-start;
+          }
+
+          .main-head {
+            padding-top: 10px !important;
+            padding-bottom: 8px !important;
+          }
+
+          .header-affiliation .affiliation {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 4px;
+            line-height: 1.2;
+          }
+
+          .header-affiliation .affiliation p,
+          .header-affiliation .affiliation .coordinate-link {
+            margin: 0;
+            padding: 0;
+            line-height: 1.2;
           }
     }
 
@@ -59,8 +83,11 @@
       }
 
       .header-logo img {
-        max-height: 60px;
-        width: auto;
+        display: block;
+        width: 430px;
+        max-width: 100%;
+        height: auto;
+        max-height: 50px;
       }
 
       .header-hamburger {
@@ -102,9 +129,12 @@
       }
 
       .header-logo img {
-        max-width: 100%;
+        display: block;
+        width: 340px;
+        max-width: 92%;
         height: auto;
-        max-height: 48px;
+        max-height: 40px;
+        margin-inline: auto;
       }
 
       .header-buttons {

@@ -1,4 +1,4 @@
-<div class="container-fluid pt-3 pb-2 px-3 px-md-4 main-head">
+<div class="container-fluid pt-2 px-3 px-md-4 main-head">
 <div class="header-grid">
 <!-- Logo -->
 <div class="header-logo">
