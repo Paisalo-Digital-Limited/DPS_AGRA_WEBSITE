@@ -43,10 +43,6 @@
         <div class="footer-seo-links text-center text-sm-start my-4 my-sm-0">
           <h4 class="text-light mb-3">Why Choose DPS Agra</h4>
 
-          <a href="best-school-in-agra.html" class="d-block text-decoration-none text-light mb-2">
-            Best School in Agra
-          </a>
-
           <a href="best-cbse-school-in-agra.html" class="d-block text-decoration-none text-light mb-2">
             Best CBSE School in Agra
           </a>

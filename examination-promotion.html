@@ -490,6 +490,23 @@ footer a:hover{
     }
 }
 
+@media (max-width: 767.98px) {
+    .exam-table-scroll {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .exam-table-scroll > table {
+        width: 980px !important;
+        min-width: 980px;
+        max-width: none;
+        margin-bottom: 0;
+    }
+}
+
     </style>
     <meta charset="UTF-8" />
     <meta http-equiv="&#8553;-UA-Compatible" content="IE=edge" />
@@ -902,7 +919,8 @@ footer a:hover{
           <dl>
             <dt class="fs-5">(A) Scholastic Area</dt>
             <dd class="px-4 pt-3">
-              <table class="table table-responsive table-bordered bg-white">
+              <div class="exam-table-scroll">
+              <table class="table table-bordered bg-white">
                 <thead class="text-center">
                   <tr>
                     <th class="fs-5" colspan="2">Term 1 (100 M.M.)</th>
@@ -995,6 +1013,7 @@ footer a:hover{
                   </tr>
                 </tbody>
               </table>
+              </div>
             </dd>
           </dl>
           <dl>
@@ -1025,7 +1044,8 @@ footer a:hover{
           <dl>
             <dt class="fs-5">(A) Scholastic Activities</dt>
             <dd class="px-4 pt-3">
-              <table class="table table-responsive table-bordered bg-white">
+              <div class="exam-table-scroll">
+              <table class="table table-bordered bg-white">
                 <thead>
                   <tr>
                     <th class="text-center fs-5" colspan="4">
@@ -1055,7 +1075,7 @@ footer a:hover{
                       </ul>
                     </td>
                     <td class="w-75 p-0">
-                      <table class="table table-bordered mb-0">
+                      <table class="table table-bordered mb-0 exam-inner-table">
                         <thead class="text-center">
                           <th>Periodic Test : 10 Marks</th>
                           <th>Notebook Submission : 5 Marks</th>
@@ -1096,6 +1116,7 @@ footer a:hover{
                   </tr>
                 </tbody>
               </table>
+              </div>
             </dd>
           </dl>
           <dl>
@@ -1123,7 +1144,8 @@ footer a:hover{
           <dl>
             <dt class="fs-5">(A) Scholastic Activities</dt>
             <dd class="px-4 pt-3">
-              <table class="table table-responsive table-bordered bg-white">
+              <div class="exam-table-scroll">
+              <table class="table table-bordered bg-white">
                 <thead>
                   <tr>
                     <th class="text-center fs-5" colspan="4">
@@ -1153,7 +1175,7 @@ footer a:hover{
                       </ul>
                     </td>
                     <td class="w-75 p-0">
-                      <table class="table table-responsive table-bordered mb-0">
+                      <table class="table table-bordered mb-0 exam-inner-table">
                         <thead class="text-center">
                           <th>Periodic Test : 10 Marks</th>
                           <th>Notebook Submission : 5 Marks</th>
@@ -1194,6 +1216,7 @@ footer a:hover{
                   </tr>
                 </tbody>
               </table>
+              </div>
             </dd>
           </dl>
           <dl>
@@ -1324,10 +1347,6 @@ footer a:hover{
 
                     <div class="seo-links">
                         <h4 class="text-light">Why Choose DPS Agra</h4>
-
-                        <a href="best-school-in-agra.html">
-                            Best School in Agra
-                        </a>
 
                         <a href="best-cbse-school-in-agra.html">
                             Best CBSE School in Agra

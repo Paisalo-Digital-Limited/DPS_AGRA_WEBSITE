@@ -368,4 +368,23 @@ a .btn-title {
 caption {
   caption-side: top;
   text-align: center;
-}/*# sourceMappingURL=style.css.map */
+}
+
+@media (max-width: 767.98px) {
+  .mobile-table-scroll,
+  div.table-responsive {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-table-scroll > table {
+    min-width: 720px;
+    width: max-content;
+    max-width: none;
+    margin-bottom: 0;
+  }
+}
+/*# sourceMappingURL=style.css.map */
