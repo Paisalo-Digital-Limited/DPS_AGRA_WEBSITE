@@ -545,12 +545,29 @@ footer a:hover{
         justify-content:center;
     }
 }
+
+@media (max-width: 767.98px) {
+    .mobile-table-scroll {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        overflow-x: scroll !important;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-table-scroll > table {
+        width: max-content !important;
+        min-width: 720px;
+        max-width: none !important;
+        margin-bottom: 0;
+    }
+}
     </style>
   </head>
   <body>
     <div class="splash-container">
       <img src="img/logo.png" alt="" />
-      <span class="school-name">DPS AGRA ...</span>
+      <span class="school-name">DPS AGRA</span>
     </div>
    
     <header>
