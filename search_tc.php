@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Search Transfer Certificate</title>
+    <title>Transfer Certificate Search | DPS Agra</title>
+    <meta name="description"
+        content="Search for a school transfer certificate at DPS Agra using the available details. Access transfer certificate information through the school's online facility." />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <style>
         body {
@@ -66,7 +68,7 @@
     <div class="search-box">
 		<img src="1.gif" height=100 width=110>
 		        <h3>File Service Pannel</h3>
-        <h5>Search Your Transfer Certificate</h5>
+        <h5>Search Transfer Certificate at DPS Agra</h5>
         <form method="POST" action="search_tc.php">
             <input type="text" name="enrollment_no" placeholder="Enter Enrollment Number" required><br>
             <input type="submit" name="search" value="Search"><br><br><br>
