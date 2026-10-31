@@ -1,1 +1,8 @@
-Redirect 301 /aboutus.html /about-us.html
+RewriteEngine On
+
+# 1. Global Non-WWW to WWW Redirect (Handles ALL pages)
+RewriteCond %{HTTP_HOST} ^dps\.ac\.in$ [NC]
+RewriteRule ^(.*)$ https://www.dps.ac.in/$1 [R=301,L,NE]
+
+# 2. Individual Page Redirects (Converted to RewriteRule)
+RewriteRule ^aboutus\.html$ /about-us.html [R=301,L,NC]
